@@ -4,22 +4,22 @@
 
 <div class="reg-form">
     <div>Email Id</div>
-    <div><input type="email" [(ngModel)]="emailId" size="40" placeholder="Email ID"> </div>
+    <div><input type="email" [(ngModel)]="registrationData.emailId" size="40" placeholder="Email ID"> </div>
     <div>First Name</div>
-    <div> <input type="text" [(ngModel)]="firstName" size="40" placeholder="First Name"></div>
+    <div> <input type="text" [(ngModel)]="registrationData.firstName" size="40" placeholder="First Name"></div>
     <div>Last Name</div>
-    <div> <input type="text" [(ngModel)]="lastName" size="40" placeholder="Last Name"></div>
+    <div> <input type="text" [(ngModel)]="registrationData.lastName" size="40" placeholder="Last Name"></div>
     <div>Date of Birth</div>
-    <div> <input type="date" [(ngModel)]="dob"></div>
+    <div> <input type="date" [(ngModel)]="registrationData.dob"></div>
     <div>Mobile Number</div>
-    <div> <input type="tel" [(ngModel)]="mobile" placeholder="Mobile Number"></div>
+    <div> <input type="tel" [(ngModel)]="registrationData.mobile" placeholder="Mobile Number"></div>
     <div>Address </div>
     <div class="address">
-        <div><input type="text" [(ngModel)]="addressLine1" placeholder="D.No. / Flat No and Apartment Name" size="40"></div>
-        <div><input type="text" [(ngModel)]="addressLine1" placeholder="Street Name" size="40"></div>
-        <div><input type="text" [(ngModel)]="landMark" placeholder="Landmark" size="40"></div>
-        <div><input type="text" [(ngModel)]="city" placeholder="City" size="40"></div>
-        <div><input type="number" [(ngModel)]="pincode" placeholder="Pincode"></div>
+        <div><input type="text" [(ngModel)]="registrationData.addressLine1" placeholder="D.No. / Flat No and Apartment Name" size="40"></div>
+        <div><input type="text" [(ngModel)]="registrationData.addressLine2" placeholder="Street Name" size="40"></div>
+        <div><input type="text" [(ngModel)]="registrationData.landMark" placeholder="Landmark" size="40"></div>
+        <div><input type="text" [(ngModel)]="registrationData.city" placeholder="City" size="40"></div>
+        <div><input type="number" [(ngModel)]="registrationData.pincode" placeholder="Pincode"></div>
     </div>
     <div>
         <input type="submit" class="btn btn-primary" value="Continue" (click)="onSubmit()">
