@@ -12,6 +12,10 @@ const regRoutes: Route[] = [
     {
         path: 'reg-form',
         component: RegFormComponent
+    },
+    {
+        path: 'reg-review',
+        component: RegReviewComponent
     }
 ];
 

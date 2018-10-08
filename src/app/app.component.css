@@ -7,3 +7,29 @@
     display: grid;
     grid-template-columns: 200px auto;
 }
+
+
+.menu {
+    background: #ec8989;
+}
+
+.grid-header {
+    background: #dadaf5;
+}
+
+.grid-footer {
+    background: #827777;
+}
+
+
+
+@media screen and (max-width: 680px) {
+    .grid-body {
+        grid-template-columns: auto;
+        grid-template-rows: 50px auto;
+    }
+
+    .content {
+        min-height: 200px;
+    }
+}
