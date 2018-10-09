@@ -1,0 +1,13 @@
+.successContainer {
+    display: grid;
+    grid-template-columns: auto;
+}
+
+.reg-item {
+    display: grid;
+    grid-template-columns: 120px auto;
+}
+
+
+
+

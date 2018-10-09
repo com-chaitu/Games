@@ -8,12 +8,13 @@ import { RegConfirmationComponent } from './reg-confirmation/reg-confirmation.co
 import { RegistrationRouting } from './registration-routing.module';
 import { RegProgressBarComponent } from './reg-progress-bar/reg-progress-bar.component';
 import { RegistrationService } from './services/registration.service';
+import { RegPwdSetupComponent } from './reg-pwd-setup/reg-pwd-setup.component';
 
 @NgModule({
   imports: [
     CommonModule, RegistrationRouting, FormsModule
   ],
-  declarations: [RegFormComponent, RegReviewComponent, RegConfirmationComponent, RegProgressBarComponent],
+  declarations: [RegFormComponent, RegReviewComponent, RegConfirmationComponent, RegProgressBarComponent, RegPwdSetupComponent],
   providers:[RegistrationService]
 })
 export class RegistrationModule { }

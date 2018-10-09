@@ -14,3 +14,15 @@
 .reg-progress-bar {
     padding-bottom: 40px;
 }
+
+@media screen and (max-width: 680px) {
+    .reg-form {
+        grid-template-columns: auto;
+        justify-content: space-evenly;
+        row-gap: 0;
+    }
+
+    .reg-form > :nth-child(2n) {
+        padding-bottom: 10px;
+    }
+}

@@ -20,6 +20,10 @@
     margin-top: 3px;
 }
 
+.reg-progress-bar{
+    display: grid;
+}
+
 .halfCircle {
     width: 18px;
     height: calc(18px/2);

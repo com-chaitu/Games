@@ -14,7 +14,7 @@ export class RegProgressBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.screenList = ['form', 'review', 'confirmation'];
+    this.screenList = ['form', 'review', 'pwdSetup', 'confirmation'];
     this.currentScreenIndex = this.getCurrentScreenIndex();
     document.documentElement.style.setProperty('--reg-progress-bar-screens', ''+this.screenList.length);
   }
