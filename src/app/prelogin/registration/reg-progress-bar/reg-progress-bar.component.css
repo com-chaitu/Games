@@ -1,7 +1,7 @@
-.progress-bar-container {
+/* .progress-bar-container {
     display: grid;
     grid-template-columns: repeat(var(--reg-progress-bar-screens), 1fr);
-}
+} */
 
 .circle {
     width: 25px;
@@ -18,6 +18,8 @@
     background: #57ce33;
     margin-left: 3px;
     margin-top: 3px;
+    position: relative;
+    z-index: 2;
 }
 
 .reg-progress-bar{
@@ -36,11 +38,11 @@
 }
 
 .pipe {
-    width: 100%;
     height: 10px;
     background: #dfe4e8;
-    margin-top: 7px;
-    margin-left: 5px;
+    float: left;
+    position: relative;
+    top: 7px;
 }
 
 .innerPipe {
@@ -48,6 +50,6 @@
     background: #57ce33;
     width: 100%;
     height: 60%;
-    z-index: 211;
+    z-index: 2;
     top: 2px;
 }

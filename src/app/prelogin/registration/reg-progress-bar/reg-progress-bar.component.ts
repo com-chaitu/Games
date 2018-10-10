@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'app-reg-progress-bar',
@@ -8,8 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class RegProgressBarComponent implements OnInit {
   screenList: Array<string>;
   currentScreenIndex: number;
+  pipeStyles: any;
   @Input()
   screenId: string;
+
+  @ViewChild('progressBar')
+  progressBar: ElementRef;
+
+
 
   constructor() { }
 
@@ -17,10 +23,17 @@ export class RegProgressBarComponent implements OnInit {
     this.screenList = ['form', 'review', 'pwdSetup', 'confirmation'];
     this.currentScreenIndex = this.getCurrentScreenIndex();
     document.documentElement.style.setProperty('--reg-progress-bar-screens', ''+this.screenList.length);
+    this.setPipeStyles();
   }
 
   getCurrentScreenIndex() {
     return this.screenList.indexOf(this.screenId);
+  }
+
+  setPipeStyles() {
+    const barWidth = this.progressBar.nativeElement.offsetWidth;
+    let pipeWidth = ((barWidth - this.screenList.length * 25)/(this.screenList.length -1)) + 2*23/2;
+    this.pipeStyles = {'width.px': pipeWidth, 'margin-left.px': -11, 'margin-right.px': -12};
   }
 
 }
