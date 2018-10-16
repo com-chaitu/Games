@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BackendService } from './services/backend.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { GamesHeaderComponent } from './games-header/games-header.component';
+import { GamesFooterComponent } from './games-footer/games-footer.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GamesHeaderComponent,
+    GamesFooterComponent
   ],
   imports: [
     BrowserModule,

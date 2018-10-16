@@ -1,6 +1,6 @@
 .grid-container {
     display: grid;
-    grid-template-rows: 100px auto 200px;
+    grid-template-rows: auto auto 200px;
 }
 
 .grid-body {
@@ -14,7 +14,8 @@
 }
 
 .grid-header {
-    background: #dadaf5;
+    background: linear-gradient(#123d8a, #295ab3);
+    opacity: 0.9;
 }
 
 .grid-footer {
