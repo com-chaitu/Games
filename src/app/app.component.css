@@ -19,7 +19,8 @@
 }
 
 .grid-footer {
-    background: #827777;
+    background: linear-gradient(#080808, #000408);
+    opacity: 0.8;
 }
 
 
