@@ -1,6 +1,6 @@
 .grid-container {
     display: grid;
-    grid-template-rows: auto auto 200px;
+    grid-template-rows: auto auto auto;
 }
 
 .grid-body {
@@ -16,6 +16,7 @@
 .grid-header {
     background: linear-gradient(#123d8a, #295ab3);
     opacity: 0.9;
+    box-shadow: 0 2px 2px rgb(46, 85, 156, 0.5);
 }
 
 .grid-footer {

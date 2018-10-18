@@ -1,7 +1,21 @@
-<div>
+<div class="social-container">
     <ul class="social">
         <li class="facebook"></li>
         <li class="twitter"></li>
         <li class="watsapp"></li>
     </ul>
+</div>
+
+<div class="navigationalElements">
+    <div class="navGroup" *ngFor="let navGroup of navigationElements">
+        <div class="footer-arrow"></div>
+        <div class="navGroupText">{{navGroup.text}}</div>
+        <div class="nav-sub-group-container">
+            <div class="nav-sub-group-element" *ngFor="let element of navGroup.subElements">
+                {{element.text}}
+            </div>
+        </div>
+
+    </div>
+
 </div>
