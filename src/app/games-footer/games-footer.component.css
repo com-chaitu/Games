@@ -46,6 +46,10 @@
 
 
 /* Navigation Elements Styles */
+.navigationalElements {
+    margin-bottom: 20px;
+}
+
 .footer-arrow {
     background-image: url(/assets/images_sprite.png);
     background-repeat: no-repeat;
@@ -54,6 +58,26 @@
     background-position: -38px -50px;
     background-size: 115px;
     display: inline-block;
+
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    position: relative;
+    top: 5px;
+    transition: 200ms linear all;
+
+}
+
+.open > .footer-arrow {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+    transition: 200ms linear all;
+    top: 0px;
 }
 
 .navGroupText {
@@ -64,6 +88,9 @@
     color: #fff;
     font-size: 18px;
     letter-spacing: 1px;
+}
+
+.open .navGroupText {
     margin-bottom: 20px;
 }
 

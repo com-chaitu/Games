@@ -47,9 +47,17 @@ export class GamesFooterComponent implements OnInit {
     }
   ];
 
+  navGroupState: Array<boolean>;
   constructor() { }
 
   ngOnInit() {
+    this.navGroupState = Array(this.navigationElements.length).fill(false);
   }
+
+  changeState(index: number) {
+    this.navGroupState[index] = !this.navGroupState[index];
+  }
+
+  
 
 }

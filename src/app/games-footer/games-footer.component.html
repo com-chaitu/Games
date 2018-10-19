@@ -7,10 +7,10 @@
 </div>
 
 <div class="navigationalElements">
-    <div class="navGroup" *ngFor="let navGroup of navigationElements">
+    <div class="navGroup" [class.open]="navGroupState[i]" *ngFor="let navGroup of navigationElements; let i = index" (click)="changeState(i)">
         <div class="footer-arrow"></div>
         <div class="navGroupText">{{navGroup.text}}</div>
-        <div class="nav-sub-group-container">
+        <div *ngIf="navGroupState[i]" class="nav-sub-group-container">
             <div class="nav-sub-group-element" *ngFor="let element of navGroup.subElements">
                 {{element.text}}
             </div>
