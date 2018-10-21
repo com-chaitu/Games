@@ -3,6 +3,7 @@ import { RouterModule, Route } from "@angular/router";
 import { RegFormComponent } from './reg-form/reg-form.component';
 import { RegReviewComponent } from './reg-review/reg-review.component';
 import { RegConfirmationComponent } from './reg-confirmation/reg-confirmation.component';
+import { RegPwdSetupComponent } from "./reg-pwd-setup/reg-pwd-setup.component";
 
 const regRoutes: Route[] = [
     {
@@ -16,6 +17,10 @@ const regRoutes: Route[] = [
     {
         path: 'reg-review',
         component: RegReviewComponent
+    },
+    {
+        path: 'reg-pwd-setup',
+        component: RegPwdSetupComponent
     }
 ];
 

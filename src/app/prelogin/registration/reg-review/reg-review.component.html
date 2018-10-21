@@ -1,3 +1,43 @@
-<p>
-  reg-review works!
-</p>
+<div class="reg-progress-bar">
+    <app-reg-progress-bar screenId="review"></app-reg-progress-bar>
+</div>
+
+<div *ngIf="registrationData && registrationData.emailId; else errorContainer" class="successContainer">
+  <div *ngIf="registrationData.emailId" class="reg-item">
+    <div>Email Id</div>
+    <div>{{registrationData.emailId}}</div>
+  </div>
+  <div *ngIf="registrationData.firstName" class="reg-item">
+    <div>First Name</div>
+    <div>{{registrationData.firstName}}</div>
+  </div>
+  <div *ngIf="registrationData.lastName" class="reg-item">
+    <div>Last Name</div>
+    <div>{{registrationData.lastName}}</div>
+  </div>
+  <div *ngIf="registrationData.dob" class="reg-item">
+    <div>Date of Birth</div>
+    <div>{{registrationData.dob}}</div>
+  </div>
+  <div *ngIf="registrationData.mobile" class="reg-item">
+    <div>Mobile Number</div>
+    <div>{{registrationData.mobile}}</div>
+  </div>
+  <div *ngIf="registrationData.city" class="reg-item">
+    <div>Address </div>
+    <div class="address">
+      <div>{{registrationData.addressLine1}}</div>
+      <div>{{registrationData.addressLine2}}</div>
+      <div>{{registrationData.landMark}}</div>
+      <div>{{registrationData.city}}</div>
+      <div>{{registrationData.pincode}}</div>
+    </div>
+  </div>
+  <div>
+    <input type="submit" class="btn btn-primary" value="Submit" (click)="onSubmit()">
+  </div>
+</div>
+
+<ng-template #errorContainer>
+  Error message goes here
+</ng-template>
