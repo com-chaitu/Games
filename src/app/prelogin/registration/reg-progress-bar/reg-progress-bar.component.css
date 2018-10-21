@@ -1,7 +1,6 @@
-/* .progress-bar-container {
-    display: grid;
-    grid-template-columns: repeat(var(--reg-progress-bar-screens), 1fr);
-} */
+.progress-bar-container {
+    overflow: hidden;
+}
 
 .circle {
     width: 25px;

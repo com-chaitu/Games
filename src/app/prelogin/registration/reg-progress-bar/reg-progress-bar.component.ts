@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, ViewChildren } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, ViewChildren, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-reg-progress-bar',
@@ -16,6 +16,9 @@ export class RegProgressBarComponent implements OnInit {
   progressBar: ElementRef;
 
 
+  @HostListener('window:resize') onWindowResize() {
+    this.setPipeStyles();
+  }
 
   constructor() { }
 

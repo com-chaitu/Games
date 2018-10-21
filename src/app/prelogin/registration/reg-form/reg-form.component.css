@@ -1,3 +1,17 @@
+.reg-container {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 15px 20px 0px rgba(0,0,0,0.1);
+}
+
+.reg-progress-bar {
+    padding: 20px;
+}
+
+.reg-form {
+    clear: both;
+}
+
 .address-input {
     margin-bottom: 8px;
 }
