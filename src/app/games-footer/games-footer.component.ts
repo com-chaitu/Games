@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
   selector: 'games-footer',
@@ -44,20 +44,52 @@ export class GamesFooterComponent implements OnInit {
           url: '/games/faqs'
         }
       ]
+    },
+    {
+      id: 'events',
+      text: 'Events & Album',
+      subElements: [
+        {
+          subId: 'upcomingEvents',
+          text: 'Upcoming Events',
+          url: '/games/upcomingEvents'
+        },
+        {
+          subId: 'album',
+          text: 'Album',
+          url: '/games/album'
+        }
+      ]
     }
   ];
 
+  @HostListener('window:resize') onWindowResize() {
+    if (window.innerWidth < 680) {
+      this.navGroupStyles = { 'width.%': 100 };
+      this.navGroupState = Array(this.navGroupElementsNum).fill(false);
+    } else {
+      this.navGroupStyles = { 'width.%': 100 / this.navGroupElementsNum };
+      this.navGroupState = Array(this.navGroupElementsNum).fill(true);
+    }
+  }
+
+
+
   navGroupState: Array<boolean>;
+  navGroupStyles: any;
+  navGroupElementsNum: number;
+
   constructor() { }
 
   ngOnInit() {
-    this.navGroupState = Array(this.navigationElements.length).fill(false);
+    this.navGroupElementsNum = this.navigationElements.length;
+    this.onWindowResize();
   }
 
   changeState(index: number) {
-    this.navGroupState[index] = !this.navGroupState[index];
+    if (window.innerWidth < 680) {
+      this.navGroupState[index] = !this.navGroupState[index];
+    }
   }
-
-  
 
 }

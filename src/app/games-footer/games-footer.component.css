@@ -1,5 +1,6 @@
 .social-container {
     min-height: 40px;
+    margin-bottom: 16px;
 }
 
 .facebook {
@@ -33,12 +34,24 @@
     border-bottom-right-radius: 4px;
 }
 
+.phone {
+    background-image: url(/assets/images_sprite.png);
+    background-repeat: no-repeat;
+    width: 19px;
+    height: 20px;
+    background-position: -80px -52px;
+    background-size: 115px;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
 .social {
     float: right;
     margin-top: 10px;
 }
 
-.social li {
+.social a {
     display: inline-block;
     margin-right: 20px;
 }
@@ -47,7 +60,9 @@
 
 /* Navigation Elements Styles */
 .navigationalElements {
-    margin-bottom: 20px;
+    padding: 0px 20px 20px 60px;
+    float: left;
+    width: 100%;
 }
 
 .footer-arrow {
@@ -57,7 +72,7 @@
     height: 20px;
     background-position: -38px -50px;
     background-size: 115px;
-    display: inline-block;
+    display: none;
 
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
@@ -82,26 +97,17 @@
 
 .navGroupText {
     display: inline-block;
-    margin-left: 20px;
     font-family: sans-serif;
     font-weight: bold;
     color: #fff;
     font-size: 18px;
     letter-spacing: 1px;
-}
-
-.open .navGroupText {
+    width: 100%;
     margin-bottom: 20px;
 }
 
 .navGroup {
-    margin: 20px 20px 0px 20px;
-    border-top: 1px solid #ffffff;
-    padding: 20px 20px 0px 20px;
-}
-
-.nav-sub-group-container {
-    margin: 0px 10px 0px 40px;
+    float: left;
 }
 
 .nav-sub-group-element{
@@ -110,4 +116,35 @@
     color: #ffffff;
     letter-spacing: 1px;
     margin-bottom: 20px;
+}
+
+@media screen and (max-width: 680px) {
+    .navigationalElements {
+        padding-left: 20px;
+    }
+
+    .navGroup {
+        width: 100%;
+        border-top: 1px solid #ffffff;
+        padding: 20px 20px 0px 20px;
+    }
+
+    .navGroup:last-child {
+        border-bottom: 1px solid #ffffff;
+    }
+
+    .navGroupText {
+        width: auto;
+        margin-left: 20px;
+        cursor: pointer;
+    }
+
+    .footer-arrow {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .nav-sub-group-container {
+        margin: 0px 10px 0px 40px;
+    }
 }
