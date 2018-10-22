@@ -1,0 +1,85 @@
+.login-container {
+    width:100%;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 15px 20px 0px rgba(0,0,0,0.1);
+}
+
+.login-sec-title {
+    margin-bottom: 30px;
+    font-weight: 800;
+    font-size: 30px;
+    color: #DE6262;
+    text-align: center;
+}
+
+.login-sec-title::after {
+    margin: 10px auto 0 auto;
+    background: #FEB58A;
+    content: '';
+    width: 100px;
+    height: 5px;
+    display: block;
+    border-radius: 3px;
+}
+
+.login-section {
+    padding-left: 30px;
+    padding-bottom: 20px;
+}
+
+.login-sec-footer {
+    overflow: hidden;
+}
+
+.btn-login {
+    background: #DE6262;
+    color: #fff;
+    font-weight: 600;
+    float: right;
+}
+
+.register {
+    margin-top: 15px;
+}
+
+.register a {
+    text-decoration: underline;
+}
+
+#photoSlide, :host /deep/ #photoSlide div {
+    height: 100%;
+}
+
+.login-photo-carousel-item {
+    min-height: 275px;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 101% 101%;
+    border-radius: 0px 9px 9px 0px;
+}
+
+.photo1 {
+    background-image: url('/assets/login_1.png');
+}
+
+.photo2 {
+    background-image: url('/assets/login_2.png');
+}
+
+.photo3 {
+    background-image: url('/assets/login_3.png');
+}
+
+
+@media screen and (max-width: 768px) {
+    .login-photo-carousel-item {
+        border-radius: 0px 0px 9px 9px;
+    }
+
+    .login-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}

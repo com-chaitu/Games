@@ -1,37 +1,30 @@
-<div class="reg-progress-bar">
-    <app-reg-progress-bar screenId="form"></app-reg-progress-bar>
-</div>
+<div class="reg-container">
+    <div class="reg-progress-bar">
+        <app-reg-progress-bar screenId="form"></app-reg-progress-bar>
+    </div>
 
-<div class="reg-form">
-    <div class="form-group">
-        <label class="col-sm-4 control-label">Email Id</label>
-        <div class="col-sm-8">
+    <div class="reg-form">
+        <div class="form-group">
+            <label class="control-label">Email Id</label>
             <input type="email" [(ngModel)]="registrationData.emailId" class="form-control" placeholder="Email ID">
         </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-4 control-label" iv>First Name</label>
-        <div class="col-sm-8">
-            <input type="text" [(ngModel)]="registrationData.firstName" class="form-control" placeholder="First Name"></div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-4 control-label" iv>Last Name</label>
-        <div class="col-sm-8">
-            <input type="text" [(ngModel)]="registrationData.lastName" class="form-control" placeholder="Last Name"></div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-4 control-label">Date of Birth</label>
-        <div class="col-sm-8">
+        <div class="form-group">
+            <label class="control-label" iv>First Name</label>
+            <input type="text" [(ngModel)]="registrationData.firstName" class="form-control" placeholder="First Name">
+        </div>
+        <div class="form-group">
+            <label class="control-label" iv>Last Name</label>
+            <input type="text" [(ngModel)]="registrationData.lastName" class="form-control" placeholder="Last Name">
+        </div>
+        <div class="form-group">
+            <label class="control-label">Date of Birth</label>
             <input type="date" [(ngModel)]="registrationData.dob" class="form-control"></div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-4 control-label">Mobile Number</label>
-        <div class="col-sm-8">
-            <input type="tel" [(ngModel)]="registrationData.mobile" class="form-control" placeholder="Mobile Number"></div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-4 control-label">Address </label>
-        <div class="col-sm-8">
+        <div class="form-group">
+            <label class="control-label">Mobile Number</label>
+            <input type="tel" [(ngModel)]="registrationData.mobile" class="form-control" placeholder="Mobile Number">
+        </div>
+        <div class="form-group">
+            <label class="control-label">Address </label>
             <input type="text" [(ngModel)]="registrationData.addressLine1" class="form-control address-input"
                 placeholder="D.No. / Flat No and Apartment Name">
             <input type="text" [(ngModel)]="registrationData.addressLine2" class="form-control address-input"
@@ -40,10 +33,9 @@
             <input type="text" [(ngModel)]="registrationData.city" class="form-control address-input" placeholder="City">
             <input type="number" [(ngModel)]="registrationData.pincode" class="form-control address-input" placeholder="Pincode">
         </div>
-        <div class="col-sm-8">
-            <div>
-                <input type="submit" class="btn btn-primary" value="Continue" (click)="onSubmit()">
-            </div>
+        <div class="reg-footer">
+            <button class="btn btn-submit" (click)="onSubmit()">Continue</button>
+            <a [routerLink]="['./../../prelogin']" class="btn btn-link">Cancel</a>
         </div>
     </div>
 </div>

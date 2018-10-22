@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, ViewChildren } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, ViewChildren, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-reg-progress-bar',
@@ -16,6 +16,9 @@ export class RegProgressBarComponent implements OnInit {
   progressBar: ElementRef;
 
 
+  @HostListener('window:resize') onWindowResize() {
+    this.setPipeStyles();
+  }
 
   constructor() { }
 
@@ -32,7 +35,7 @@ export class RegProgressBarComponent implements OnInit {
 
   setPipeStyles() {
     const barWidth = this.progressBar.nativeElement.offsetWidth;
-    let pipeWidth = ((barWidth - this.screenList.length * 25)/(this.screenList.length -1)) + 2*23/2;
+    let pipeWidth = ((barWidth - this.screenList.length * 25)/(this.screenList.length -1)) + 2*22/2;
     this.pipeStyles = {'width.px': pipeWidth, 'margin-left.px': -11, 'margin-right.px': -12};
   }
 

@@ -1,3 +1,59 @@
+.reg-container {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 15px 20px 0px rgba(0,0,0,0.1);
+    width: 60%;
+    margin: 0 auto;
+}
+
+.reg-progress-bar {
+    padding: 20px 60px;
+}
+
+.reg-form {
+    overflow: hidden;
+    margin: 0 60px;
+}
+
 .address-input {
     margin-bottom: 8px;
 }
+.reg-footer {
+    margin-bottom: 20px;
+}
+.btn-submit {
+    background: #DE6262;
+    color: #fff;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 680px) {
+    .reg-container {
+        width: 100%;
+    }
+
+    .reg-form {
+        margin: 0px 20px;
+    }
+
+    .reg-progress-bar {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media screen and (min-width: 681px) and (max-width: 980px) {
+    .reg-container {
+        width: 70%;
+    }
+
+    .reg-form {
+        margin: 0px 40px;
+    }
+
+    .reg-progress-bar {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
