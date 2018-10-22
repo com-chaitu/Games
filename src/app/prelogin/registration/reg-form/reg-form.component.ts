@@ -19,6 +19,7 @@ export class RegFormComponent implements OnInit {
     private _backend: BackendService) { }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.registrationData= new RegistrationModel();
   }
 

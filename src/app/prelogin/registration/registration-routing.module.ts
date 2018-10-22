@@ -25,7 +25,8 @@ const regRoutes: Route[] = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(regRoutes)]
+    imports: [RouterModule.forChild(regRoutes)],
+    exports: [RouterModule]
 })
 export class RegistrationRouting {
 

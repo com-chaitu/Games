@@ -35,7 +35,7 @@ export class RegProgressBarComponent implements OnInit {
 
   setPipeStyles() {
     const barWidth = this.progressBar.nativeElement.offsetWidth;
-    let pipeWidth = ((barWidth - this.screenList.length * 25)/(this.screenList.length -1)) + 2*23/2;
+    let pipeWidth = ((barWidth - this.screenList.length * 25)/(this.screenList.length -1)) + 2*22/2;
     this.pipeStyles = {'width.px': pipeWidth, 'margin-left.px': -11, 'margin-right.px': -12};
   }
 
