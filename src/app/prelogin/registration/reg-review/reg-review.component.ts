@@ -17,6 +17,7 @@ export class RegReviewComponent implements OnInit {
     private _route: ActivatedRoute) { }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.registrationData = this._regService.registrationData;
   }
 

@@ -5,6 +5,9 @@
 
   <div *ngIf="registrationData && registrationData.emailId; else errorContainer" class="review-section">
     <div class="review-details">
+      <div class="reivew-text">
+        Please review the details below
+      </div>
       <div *ngIf="registrationData.emailId" class="reg-item row">
         <div class="reg-lable col-4">Email Id</div><span>:&nbsp;</span>
         <div class="reg-detail col-7">{{registrationData.emailId}}</div>
