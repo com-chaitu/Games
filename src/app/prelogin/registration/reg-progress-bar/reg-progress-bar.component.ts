@@ -25,12 +25,12 @@ export class RegProgressBarComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.screenList = ['form', 'review', 'pwdSetup', 'confirmation'];
     this.currentScreenIndex = this.getCurrentScreenIndex();
-    document.documentElement.style.setProperty('--reg-progress-bar-screens', ''+this.screenList.length);
-    this.setPipeStyles();
   }
 
   ngAfterViewInit() {
-    this.setPipeStyles();
+    setTimeout(() => {
+      this.setPipeStyles();
+    }, 0);
   }
 
   getCurrentScreenIndex() {
@@ -39,7 +39,7 @@ export class RegProgressBarComponent implements OnInit, AfterViewInit {
 
   setPipeStyles() {
     const barWidth = this.progressBar.nativeElement.offsetWidth;
-    let pipeWidth = ((barWidth - this.screenList.length * 25)/(this.screenList.length -1)) + 2*21/2;
+    let pipeWidth = ((barWidth - this.screenList.length * 25)/(this.screenList.length -1)) + 2*22/2;
     this.pipeStyles = {'width.px': pipeWidth, 'margin-left.px': -11, 'margin-right.px': -12};
   }
 

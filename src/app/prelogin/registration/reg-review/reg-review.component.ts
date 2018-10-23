@@ -19,6 +19,9 @@ export class RegReviewComponent implements OnInit {
   ngOnInit() {
     window.scrollTo(0, 0);
     this.registrationData = this._regService.registrationData;
+    if (!this.registrationData) {
+      this._router.navigate(['../reg-form'], {relativeTo: this._route});
+    }
   }
 
   onSubmit() {
