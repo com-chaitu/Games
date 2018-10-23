@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class RegReviewComponent implements OnInit {
   registrationData: RegistrationModel;
-  
+
   constructor(
     private _regService: RegistrationService,
     private _router: Router,
@@ -21,7 +21,7 @@ export class RegReviewComponent implements OnInit {
   }
 
   onSubmit() {
-    this._router.navigate(['../reg-pwd-setup'], {relativeTo: this._route});
+    this._router.navigate(['../reg-pwd-setup'], { relativeTo: this._route });
   }
 
 }

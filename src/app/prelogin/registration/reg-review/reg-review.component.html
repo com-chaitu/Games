@@ -1,43 +1,51 @@
-<div class="reg-progress-bar">
+<div class="reg-container">
+  <div class="reg-progress-bar">
     <app-reg-progress-bar screenId="review"></app-reg-progress-bar>
-</div>
+  </div>
 
-<div *ngIf="registrationData && registrationData.emailId; else errorContainer" class="successContainer">
-  <div *ngIf="registrationData.emailId" class="reg-item">
-    <div>Email Id</div>
-    <div>{{registrationData.emailId}}</div>
-  </div>
-  <div *ngIf="registrationData.firstName" class="reg-item">
-    <div>First Name</div>
-    <div>{{registrationData.firstName}}</div>
-  </div>
-  <div *ngIf="registrationData.lastName" class="reg-item">
-    <div>Last Name</div>
-    <div>{{registrationData.lastName}}</div>
-  </div>
-  <div *ngIf="registrationData.dob" class="reg-item">
-    <div>Date of Birth</div>
-    <div>{{registrationData.dob}}</div>
-  </div>
-  <div *ngIf="registrationData.mobile" class="reg-item">
-    <div>Mobile Number</div>
-    <div>{{registrationData.mobile}}</div>
-  </div>
-  <div *ngIf="registrationData.city" class="reg-item">
-    <div>Address </div>
-    <div class="address">
-      <div>{{registrationData.addressLine1}}</div>
-      <div>{{registrationData.addressLine2}}</div>
-      <div>{{registrationData.landMark}}</div>
-      <div>{{registrationData.city}}</div>
-      <div>{{registrationData.pincode}}</div>
+  <div *ngIf="registrationData && registrationData.emailId; else errorContainer" class="review-section">
+    <div class="review-details">
+      <div *ngIf="registrationData.emailId" class="reg-item row">
+        <div class="reg-lable col-4">Email Id</div><span>:&nbsp;</span>
+        <div class="reg-detail col-7">{{registrationData.emailId}}</div>
+      </div>
+      <div *ngIf="registrationData.firstName" class="reg-item row">
+        <div class="reg-lable col-4">First Name</div><span>:&nbsp;</span>
+        <div class="reg-detail col-7">{{registrationData.firstName}}</div>
+      </div>
+      <div *ngIf="registrationData.lastName" class="reg-item row">
+        <div class="reg-lable col-4">Last Name</div><span>:&nbsp;</span>
+        <div class="reg-detail col-7">{{registrationData.lastName}}</div>
+      </div>
+      <div *ngIf="registrationData.dob" class="reg-item row">
+        <div class="reg-lable col-4">Date of Birth</div><span>:&nbsp;</span>
+        <div class="reg-detail col-7">{{registrationData.dob}}</div>
+      </div>
+      <div *ngIf="registrationData.mobile" class="reg-item row">
+        <div class="reg-lable col-4">Mobile No.</div><span>:&nbsp;</span>
+        <div class="reg-detail col-7">{{registrationData.mobile}}</div>
+      </div>
+      <div *ngIf="registrationData.city" class="reg-item row">
+        <div class="reg-lable col-4">Address </div><span>:&nbsp;</span>
+        <div class="reg-detail col-7">
+          <div>{{registrationData.addressLine1}}</div>
+          <div>{{registrationData.addressLine2}}</div>
+          <div>{{registrationData.landmark}}</div>
+          <div>{{registrationData.city}}</div>
+          <div>{{registrationData.pincode}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="reg-footer">
+      <button class="btn btn-submit" (click)="onSubmit()">Submit</button>
+      <a [routerLink]="['./../reg-form']" class="btn btn-link">Cancel</a>
     </div>
   </div>
-  <div>
-    <input type="submit" class="btn btn-primary" value="Submit" (click)="onSubmit()">
-  </div>
-</div>
 
-<ng-template #errorContainer>
-  Error message goes here
-</ng-template>
+
+  <ng-template #errorContainer>
+    Error message goes here
+  </ng-template>
+
+
+</div>

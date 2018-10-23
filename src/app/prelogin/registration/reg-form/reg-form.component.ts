@@ -20,7 +20,11 @@ export class RegFormComponent implements OnInit {
 
   ngOnInit() {
     window.scrollTo(0, 0);
-    this.registrationData= new RegistrationModel();
+    if (this._regService.registrationData) {
+      this.registrationData = this._regService.registrationData;
+    } else {
+      this.registrationData = new RegistrationModel();
+    }
   }
 
   onSubmit() {
