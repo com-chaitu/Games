@@ -1,0 +1,83 @@
+.reg-container {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 15px 20px 0px rgba(0,0,0,0.1);
+    width: 70%;
+    margin: 0 auto;
+}
+
+.reg-progress-bar {
+    padding: 20px 60px;
+}
+
+.reg-confirm-section {
+    overflow: hidden;
+    margin: 0 60px;
+}
+
+.circle {
+    background: linear-gradient(to top, #fd7c7c, #ffb88c);
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    display: inline-block;
+}
+
+.tick-mark {
+    display: inline-block;
+    border-left: 6px solid #ffffff;
+    border-bottom: 6px solid #ffffff;
+    width: 25px;
+    height: 13px;
+    transform: rotate(-45deg);
+    position: relative;
+    top: 10px;
+    left: 12px;
+}
+
+.confirm-text {
+    display: inline-block;
+    
+}
+
+.reg-footer {
+    margin-bottom: 20px;
+    padding-top: 4px;
+}
+
+.btn-submit {
+    background: #DE6262;
+    color: #fff;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 680px) {
+    .reg-container {
+        width: 100%;
+    }
+
+    .reg-confirm-section {
+        margin: 0px 20px;
+    }
+
+    .reg-progress-bar {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media screen and (min-width: 681px) and (max-width: 980px) {
+    .reg-container {
+        width: 70%;
+    }
+
+    .reg-confirm-section {
+        margin: 0px 40px;
+    }
+
+    .reg-progress-bar {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+

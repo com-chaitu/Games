@@ -28,4 +28,8 @@ export class RegPwdSetupComponent implements OnInit {
     }
   }
 
+  onSubmit() {
+    this._router.navigate(['../reg-confirm'], {relativeTo: this._route});
+  }
+
 }

@@ -1,3 +1,24 @@
-<p>
-  reg-confirmation works!
-</p>
+<div class="reg-container">
+  <div class="reg-progress-bar">
+    <app-reg-progress-bar screenId="confirm"></app-reg-progress-bar>
+  </div>
+
+  <div class="reg-confirm-section">
+    <div>
+      <div class="circle">
+        <span class="tick-mark"></span>
+      </div>
+      <div class="confirm-text">
+        Great! Your online account has been successfully created.
+      </div>
+    </div>
+    <div>
+      To manage your booking please click on the login button below.
+    </div>
+
+    <div class="reg-footer">
+      <button class="btn btn-submit" (click)="onSubmit()">Login</button>
+      <a [routerLink]="['./../../prelogin']" class="btn btn-link">Not Now</a>
+    </div>
+  </div>
+</div>

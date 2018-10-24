@@ -23,7 +23,7 @@ export class RegProgressBarComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngOnInit() {
-    this.screenList = ['form', 'review', 'pwdSetup', 'confirmation'];
+    this.screenList = ['form', 'review', 'pwdSetup', 'confirm'];
     this.currentScreenIndex = this.getCurrentScreenIndex();
   }
 
