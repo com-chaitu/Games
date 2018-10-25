@@ -6,6 +6,40 @@
     margin: 0 auto;
 }
 
+.mandatory {
+    color: red;
+}
+
+.error .control-label {
+    color: red;
+    font-weight: 500;
+}
+
+.error input {
+    box-shadow: 0 0 0.2rem red;
+    border-color: red;
+    color: red;
+}
+
+.error input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #f95d5d;
+    opacity: 1; /* Firefox */
+}
+
+.error input::-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: red;
+}
+
+.errorMsg {
+    display: none;
+}
+
+.error .errorMsg {
+    display: block;
+    color: red;
+    font-size: small;
+}
+
 .reg-progress-bar {
     padding: 20px 60px;
 }
@@ -13,6 +47,8 @@
 .reg-form {
     overflow: hidden;
     margin: 0 60px;
+    padding-left: 3px;
+    padding-right: 3px;
 }
 
 .form-text {
@@ -27,10 +63,16 @@
 .reg-footer {
     margin-bottom: 20px;
 }
+
 .btn-submit {
     background: #DE6262;
     color: #fff;
     font-weight: 600;
+}
+
+.note {
+    font-size: small;
+    margin-top: 15px;
 }
 
 @media screen and (max-width: 680px) {
