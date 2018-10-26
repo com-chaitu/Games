@@ -12,4 +12,8 @@ export class RegConfirmationComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit() {
+    
+  }
+
 }

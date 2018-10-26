@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, HostListener} from '@angular/core';
 import { BackendService } from '../../../services/backend.service';
 import { RegistrationService } from '../services/registration.service';
 import { RegistrationModel } from '../model/registration.model';
@@ -31,7 +31,7 @@ export class RegFormComponent implements OnInit {
       "regex": null,
       "allowedRegex": "^(.){0,}$"
     },
-    "mobileNumber": {
+    "mobile": {
       "isMandatory": true,
       "regex": "^[0-9]{10}$",
       "allowedRegex": "^[0-9]{0,10}$"
@@ -57,6 +57,7 @@ export class RegFormComponent implements OnInit {
   hasEmailError = false;
   hasMobileError = false;
   hasFirstNameError = false;
+  mandatoryFieldError = false;
 
   @ViewChild('regForm')
   regForm: ElementRef;
@@ -70,6 +71,7 @@ export class RegFormComponent implements OnInit {
       while (!regex.test(event.target.value)) {
         event.target.value = event.target.value.slice(0, event.target.value.length - 1);
       }
+      this.registrationData[targetId] = event.target.value;
     }
   }
 
@@ -105,7 +107,7 @@ export class RegFormComponent implements OnInit {
           this.hasEmailError = true;
         } else if ('firstName' === targetId) {
           this.hasFirstNameError = true;
-        } else if ('mobileNumber' === targetId) {
+        } else if ('mobile' === targetId) {
           this.hasMobileError = true;
         }
       } else {
@@ -114,15 +116,30 @@ export class RegFormComponent implements OnInit {
           this.hasEmailError = false;
         } else if ('firstName' === targetId) {
           this.hasFirstNameError = false;
-        } else if ('mobileNumber' === targetId) {
+        } else if ('mobile' === targetId) {
           this.hasMobileError = false;
         }
       }
     }
+    this.updateMandatoryFieldError();
   }
 
   onSubmit() {
-    this._regService.registrationData = this.registrationData;
-    this._router.navigate(['../reg-review'], { relativeTo: this._route });
+    if (this.registrationData.emailId && this.registrationData.firstName && this.registrationData.mobile) {
+      this._regService.registrationData = this.registrationData;
+      this._router.navigate(['../reg-review'], { relativeTo: this._route });
+    } else {
+      !this.registrationData.emailId && (this.hasEmailError = true);
+      !this.registrationData.firstName && (this.hasFirstNameError = true);
+      !this.registrationData.mobile && (this.hasMobileError = true);
+      this.mandatoryFieldError = true;
+      window.scrollTo(0, 0);
+    }
+  }
+
+  updateMandatoryFieldError() {
+    if (this.registrationData.emailId && this.registrationData.firstName && this.registrationData.mobile) {
+      this.mandatoryFieldError = false
+    }
   }
 }

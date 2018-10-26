@@ -4,6 +4,9 @@
     </div>
 
     <div class="reg-form" #regForm>
+        <div class="mandatoryFieldError" *ngIf="mandatoryFieldError">
+            Please enter all the mandatory fields.
+        </div>
         <div class="form-text">
             Please enter the details below
         </div>
@@ -32,9 +35,9 @@
         </div>
         <div class="form-group" [class.error]="hasMobileError">
             <label class="control-label">Mobile Number<sup class="mandatory">*</sup></label>
-            <input id="mobileNumber" type="tel" [(ngModel)]="registrationData.mobile" class="form-control" placeholder="Mobile Number"
-                (blur)="onInputBlur($event)">
-            <span id="mobileNumberError" class="errorMsg"></span>
+            <input id="mobile" type="tel" [(ngModel)]="registrationData.mobile" class="form-control" placeholder="Mobile Number"
+                (blur)="onInputBlur($event)" (focus)="hasMobileError = false">
+            <span id="mobileError" class="errorMsg"></span>
         </div>
         <div class="form-group">
             <label class="control-label">Address </label>
