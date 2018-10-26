@@ -10,49 +10,8 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./reg-form.component.css']
 })
 export class RegFormComponent implements OnInit {
-  vaidationRules = {
-    "emailId": {
-      "isMandatory": true,
-      "regex": "^(.+)@(.+)\\.[a-zA-Z]{2,5}$",
-      "allowedRegex": "^(.){0,}$"
-    },
-    "firstName": {
-      "isMandatory": true,
-      "regex": "^[a-zA-Z ]{1,}$",
-      "allowedRegex": "^[a-zA-Z ]{0,40}$"
-    },
-    "lastName": {
-      "isMandatory": false,
-      "regex": "^[a-zA-Z ]{0,}$",
-      "allowedRegex": "^[a-zA-Z ]{0,40}$"
-    },
-    "dob": {
-      "isMandatory": false,
-      "regex": null,
-      "allowedRegex": "^(.){0,}$"
-    },
-    "mobile": {
-      "isMandatory": true,
-      "regex": "^[0-9]{10}$",
-      "allowedRegex": "^[0-9]{0,10}$"
-    },
-    "city": {
-      "isMandatory": false,
-      "regex": "^[a-zA-Z ]{0,}$",
-      "allowedRegex": "^[a-zA-Z ]{0,24}$"
-    },
-    "pincode": {
-      "isMandatory": false,
-      "regex": "^[0-9]{0,6}$",
-      "allowedRegex": "^[0-9]{0,6}$"
-    },
-    "default": {
-      "isMandatory": false,
-      "regex": "^(.){0,}$",
-      "allowedRegex": "^(.){0,}$"
-    },
-  };
-
+  
+  validationRules: any;
   registrationData: RegistrationModel;
   hasEmailError = false;
   hasMobileError = false;
@@ -64,8 +23,8 @@ export class RegFormComponent implements OnInit {
 
   @HostListener('window:keyup', ['$event']) onkeyup(event) {
     const targetId = event.target.id;
-    const validationRule = this.vaidationRules[targetId];
-    const regex = validationRule ? new RegExp(validationRule.allowedRegex) : new RegExp(this.vaidationRules['default'].allowedRegex);
+    const validationRule = this.validationRules[targetId];
+    const regex = validationRule ? new RegExp(validationRule.allowedRegex) : new RegExp(this.validationRules['default'].allowedRegex);
     const errorTarget: HTMLElement = this.regForm.nativeElement.querySelector('#' + targetId + 'Error');
     if (errorTarget) {
       while (!regex.test(event.target.value)) {
@@ -88,12 +47,13 @@ export class RegFormComponent implements OnInit {
     } else {
       this.registrationData = new RegistrationModel();
     }
+    this.validationRules = this._regService.validationRules;
   }
 
   onInputBlur(event) {
     const targetId = event.target.id;
-    const validationRule = this.vaidationRules[targetId];
-    const regex = validationRule ? new RegExp(validationRule.regex) : new RegExp(this.vaidationRules['default'].regex);
+    const validationRule = this.validationRules[targetId];
+    const regex = validationRule ? new RegExp(validationRule.regex) : new RegExp(this.validationRules['default'].regex);
     const errorTarget: HTMLElement = this.regForm.nativeElement.querySelector('#' + targetId + 'Error');
     if (errorTarget) {
       if (!regex.test(event.target.value)) {

@@ -13,12 +13,18 @@
         </div>
         <div class="form-group">
             <label class="control-label" iv>Password</label>
-            <input type="password" [(ngModel)]="password" class="form-control reg-pwd" placeholder="Enter your new password">
-            <input type="password" [(ngModel)]="rePassword" class="form-control reg-pwd" placeholder="Re-Enter your password">
+            <input id="password" type="password" [(ngModel)]="password" class="form-control reg-pwd" placeholder="Enter your new password"
+            (blur)="validatePasswords()">
+            <input id="rePassword" type="password" [(ngModel)]="rePassword" class="form-control reg-pwd" placeholder="Re-Enter your password"
+                (blur)="validatePasswords()">
+            <div class="passwordMatch" *ngIf="displayPasswordMatchMsg">
+                <span class="success" *ngIf="passwordMatch">&#10004;<span>Passwords matches</span></span>
+                <span class="error" *ngIf="!passwordMatch">&#10060;<span>Passwords does't match</span></span>
+            </div>
         </div>
-        
+
         <div class="reg-footer">
-            <button class="btn btn-submit" (click)="onSubmit()">Submit</button>
+            <button class="btn btn-submit" [disabled]="disableSubmit" (click)="onSubmit()">Submit</button>
             <a [routerLink]="['./../reg-review']" class="btn btn-link">Cancel</a>
         </div>
     </div>

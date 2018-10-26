@@ -13,6 +13,7 @@
 .reg-pwd-setup-form {
     overflow: hidden;
     margin: 0 60px;
+    padding: 0 3px;
 }
 
 .form-text {
@@ -23,6 +24,22 @@
 
 .reg-pwd {
     margin-bottom: 10px;
+}
+
+.passwordMatch .error {
+    font-size: smaller;
+    color: red;
+    font-weight: 500;
+}
+
+.passwordMatch .success {
+    font-size: smaller;
+    color: #2bb52b;
+    font-weight: 500;
+}
+
+.passwordMatch .success span, .passwordMatch .error span {
+    margin-left: 5px;
 }
 
 .reg-footer {
