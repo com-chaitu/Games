@@ -51,7 +51,7 @@ export class RegPwdSetupComponent implements OnInit {
     if (this.registrationData) {
       this.userId = this.registrationData.emailId;
     } else {
-      //this._router.navigate(['../reg-form'], { relativeTo: this._route });
+      this._router.navigate(['../reg-form'], { relativeTo: this._route });
     }
     this.validationRules = this._regService.validationRules;
   }
