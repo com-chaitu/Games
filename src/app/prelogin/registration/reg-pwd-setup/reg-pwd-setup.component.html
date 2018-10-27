@@ -1,6 +1,6 @@
 <div class="reg-container">
     <div class="reg-progress-bar">
-        <app-reg-progress-bar screenId="pwdSetup"></app-reg-progress-bar>
+        <app-progress-bar screenId="pwdSetup"></app-progress-bar>
     </div>
 
     <div class="reg-pwd-setup-form">
@@ -18,14 +18,14 @@
             <input id="rePassword" type="password" [(ngModel)]="rePassword" class="form-control reg-pwd" placeholder="Re-Enter your password"
                 (blur)="validatePasswords()">
             <div class="passwordMatch" *ngIf="displayPasswordMatchMsg">
-                <span class="success" *ngIf="passwordMatch">&#10004;<span>Passwords matches</span></span>
+                <span class="success" *ngIf="passwordMatch">&#10004;<span>Passwords match</span></span>
                 <span class="error" *ngIf="!passwordMatch">&#10060;<span>Passwords does't match</span></span>
             </div>
         </div>
 
         <div class="reg-footer">
             <button class="btn btn-submit" [disabled]="disableSubmit" (click)="onSubmit()">Submit</button>
-            <a [routerLink]="['./../reg-review']" class="btn btn-link">Cancel</a>
+            <a (click)="navigateBack()" [routerLink]="['./../reg-review']" class="btn btn-link">Cancel</a>
         </div>
     </div>
 </div>

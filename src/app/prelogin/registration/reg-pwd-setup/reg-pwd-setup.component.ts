@@ -1,14 +1,15 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, AfterViewInit } from '@angular/core';
 import { RegistrationService } from '../services/registration.service';
 import { RegistrationModel } from '../model/registration.model';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CommonService } from 'src/app/services/common.service';
 
 @Component({
   selector: 'app-reg-pwd-setup',
   templateUrl: './reg-pwd-setup.component.html',
   styleUrls: ['./reg-pwd-setup.component.css']
 })
-export class RegPwdSetupComponent implements OnInit {
+export class RegPwdSetupComponent implements OnInit, AfterViewInit {
   registrationData: RegistrationModel;
   userId: string;
   password: string;
@@ -44,9 +45,15 @@ export class RegPwdSetupComponent implements OnInit {
   constructor(
     private _regService: RegistrationService,
     private _router: Router,
+    private _cs: CommonService,
     private _route: ActivatedRoute) { }
 
+  ngAfterViewInit() {
+    this._cs.displayJampScreen(false);
+  }
+
   ngOnInit() {
+    this._cs.displayJampScreen(true);
     this.registrationData = this._regService.registrationData;
     if (this.registrationData) {
       this.userId = this.registrationData.emailId;
@@ -70,7 +77,12 @@ export class RegPwdSetupComponent implements OnInit {
   }
 
   onSubmit() {
+    this._cs.displayJampScreen(true);
     this._router.navigate(['../reg-confirm'], { relativeTo: this._route });
+  }
+
+  navigateBack() {
+    this._cs.displayJampScreen(true);
   }
 
 }

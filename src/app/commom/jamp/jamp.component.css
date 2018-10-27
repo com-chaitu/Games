@@ -1,0 +1,32 @@
+.jamp-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    opacity: 0.5;
+    z-index: 10000;
+}
+
+.jamp-box {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.jamp-text {
+    display: table-cell;
+    width: 200px;
+    height: 200px;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: bolder;
+}

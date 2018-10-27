@@ -1,6 +1,6 @@
 <div class="reg-container">
     <div class="reg-progress-bar">
-        <app-reg-progress-bar screenId="form"></app-reg-progress-bar>
+        <app-progress-bar screenId="form"></app-progress-bar>
     </div>
 
     <div class="reg-form" #regForm>
@@ -59,7 +59,7 @@
         </div>
         <div class="reg-footer">
             <button class="btn btn-submit" (click)="onSubmit()">Continue</button>
-            <a [routerLink]="['./../../prelogin']" class="btn btn-link">Cancel</a>
+            <a (click)="navigateToLogin()" [routerLink]="['./../../prelogin']" class="btn btn-link">Cancel</a>
             <div class="note">
                 Note: Fields marked with <sup class="mandatory">*</sup> are mandatory.
             </div>

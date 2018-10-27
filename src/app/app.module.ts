@@ -6,8 +6,10 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BackendService } from './services/backend.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CommonComponentsModule } from './commom/common.module';
 import { GamesHeaderComponent } from './games-header/games-header.component';
 import { GamesFooterComponent } from './games-footer/games-footer.component';
+import { CommonService } from './services/common.service';
 
 @NgModule({
   declarations: [
@@ -19,9 +21,10 @@ import { GamesFooterComponent } from './games-footer/games-footer.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    CommonComponentsModule,
     NgbModule.forRoot()
   ],
-  providers: [BackendService],
+  providers: [BackendService, CommonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

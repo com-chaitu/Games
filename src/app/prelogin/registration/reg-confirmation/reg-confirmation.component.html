@@ -1,6 +1,6 @@
 <div class="reg-container">
   <div class="reg-progress-bar">
-    <app-reg-progress-bar screenId="confirm"></app-reg-progress-bar>
+    <app-progress-bar screenId="confirm"></app-progress-bar>
   </div>
 
   <div class="reg-confirm-section">
@@ -18,7 +18,7 @@
 
     <div class="reg-footer">
       <button class="btn btn-submit" (click)="onSubmit()">Login</button>
-      <a [routerLink]="['./../../prelogin']" class="btn btn-link">Not Now</a>
+      <a (click)="navigateToLogin()" [routerLink]="['./../../prelogin']" class="btn btn-link">Not Now</a>
     </div>
   </div>
 </div>

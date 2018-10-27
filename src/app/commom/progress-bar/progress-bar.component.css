@@ -37,7 +37,7 @@
     border-right: 0;
     transform: rotate(-90deg);
     transition-property: width;
-    transition-duration: 1s;
+    transition-duration: 0.2s;
 }
 
 .pipe {
@@ -55,8 +55,8 @@
     height: 60%;
     z-index: 2;
     top: 2px;
-    transition-property: width;
-    transition-duration: 4s;
+    transition-property:width;
+    transition-duration: 1s;
     right: 7px;
 }
 

@@ -1,16 +1,17 @@
-import { Component, OnInit, ViewChild, ElementRef, HostListener} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, HostListener, AfterViewInit } from '@angular/core';
 import { BackendService } from '../../../services/backend.service';
 import { RegistrationService } from '../services/registration.service';
 import { RegistrationModel } from '../model/registration.model';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CommonService } from 'src/app/services/common.service';
 
 @Component({
   selector: 'app-reg-form',
   templateUrl: './reg-form.component.html',
   styleUrls: ['./reg-form.component.css']
 })
-export class RegFormComponent implements OnInit {
-  
+export class RegFormComponent implements OnInit, AfterViewInit {
+
   validationRules: any;
   registrationData: RegistrationModel;
   hasEmailError = false;
@@ -38,9 +39,15 @@ export class RegFormComponent implements OnInit {
     private _regService: RegistrationService,
     private _router: Router,
     private _route: ActivatedRoute,
+    private _cs: CommonService,
     private _backend: BackendService) { }
 
+  ngAfterViewInit() {
+    this._cs.displayJampScreen(false);
+  }
+
   ngOnInit() {
+    this._cs.displayJampScreen(true);
     window.scrollTo(0, 0);
     if (this._regService.registrationData) {
       this.registrationData = this._regService.registrationData;
@@ -87,6 +94,7 @@ export class RegFormComponent implements OnInit {
   onSubmit() {
     if (this.registrationData.emailId && this.registrationData.firstName && this.registrationData.mobile) {
       this._regService.registrationData = this.registrationData;
+      this._cs.displayJampScreen(true);
       this._router.navigate(['../reg-review'], { relativeTo: this._route });
     } else {
       !this.registrationData.emailId && (this.hasEmailError = true);
@@ -101,5 +109,9 @@ export class RegFormComponent implements OnInit {
     if (this.registrationData.emailId && this.registrationData.firstName && this.registrationData.mobile) {
       this.mandatoryFieldError = false
     }
+  }
+
+  navigateToLogin() {
+    this._cs.displayJampScreen(true);
   }
 }

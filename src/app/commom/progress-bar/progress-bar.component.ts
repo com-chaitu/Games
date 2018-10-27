@@ -1,11 +1,11 @@
 import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef, ViewChildren, HostListener } from '@angular/core';
 
 @Component({
-  selector: 'app-reg-progress-bar',
-  templateUrl: './reg-progress-bar.component.html',
-  styleUrls: ['./reg-progress-bar.component.css']
+  selector: 'app-progress-bar',
+  templateUrl: './progress-bar.component.html',
+  styleUrls: ['./progress-bar.component.css']
 })
-export class RegProgressBarComponent implements OnInit, AfterViewInit {
+export class ProgressBarComponent implements OnInit, AfterViewInit {
   screenList: Array<string>;
   currentScreenIndex: number;
   pipeStyles: any;
@@ -35,7 +35,7 @@ export class RegProgressBarComponent implements OnInit, AfterViewInit {
       this.removePipe = false;
       setTimeout(() => {
         this.removeCircle = false;
-      }, 4000);
+      }, 900);
     }, 0);
   }
 

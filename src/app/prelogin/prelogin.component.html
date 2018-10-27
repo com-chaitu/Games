@@ -20,7 +20,7 @@
           <button class="btn btn-login">Submit</button>
         </div>
         <div class="register">
-          <a [routerLink]="['/registration', 'reg-form']">Don't have an accout? Register now with abc</a>
+          <a (click)="goToRegistration()" [routerLink]="['/registration', 'reg-form']">Don't have an accout? Register now with abc</a>
         </div>
 
       </div>

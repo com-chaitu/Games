@@ -1,6 +1,6 @@
 <div class="reg-container">
   <div class="reg-progress-bar">
-    <app-reg-progress-bar screenId="review"></app-reg-progress-bar>
+    <app-progress-bar screenId="review"></app-progress-bar>
   </div>
 
   <div *ngIf="registrationData && registrationData.emailId; else errorContainer" class="review-section">
@@ -41,7 +41,7 @@
     </div>
     <div class="reg-footer">
       <button class="btn btn-submit" (click)="onSubmit()">Submit</button>
-      <a [routerLink]="['./../reg-form']" class="btn btn-link">Cancel</a>
+      <a (click)="navigateBack()" [routerLink]="['./../reg-form']" class="btn btn-link">Cancel</a>
     </div>
   </div>
 
