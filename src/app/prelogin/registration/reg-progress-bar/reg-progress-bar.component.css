@@ -19,6 +19,8 @@
     margin-top: 3px;
     position: relative;
     z-index: 2;
+    transition-property: width;
+    transition-duration: 1s;
 }
 
 .reg-progress-bar{
@@ -34,6 +36,8 @@
     border-top-right-radius: 9px;
     border-right: 0;
     transform: rotate(-90deg);
+    transition-property: width;
+    transition-duration: 1s;
 }
 
 .pipe {
@@ -51,4 +55,11 @@
     height: 60%;
     z-index: 2;
     top: 2px;
+    transition-property: width;
+    transition-duration: 4s;
+    right: 7px;
+}
+
+.nowidth {
+    width: 0%;
 }

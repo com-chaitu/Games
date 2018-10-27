@@ -41,6 +41,7 @@
     display: table-cell;
     vertical-align: middle;
     height: 50px;
+    font-weight: 500;
 }
 
 .manage-text {

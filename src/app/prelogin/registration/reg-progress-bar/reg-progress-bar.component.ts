@@ -11,6 +11,8 @@ export class RegProgressBarComponent implements OnInit, AfterViewInit {
   pipeStyles: any;
   @Input()
   screenId: string;
+  removePipe = true;
+  removeCircle = true;
 
   @ViewChild('progressBar')
   progressBar: ElementRef;
@@ -30,6 +32,10 @@ export class RegProgressBarComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     setTimeout(() => {
       this.setPipeStyles();
+      this.removePipe = false;
+      setTimeout(() => {
+        this.removeCircle = false;
+      }, 4000);
     }, 0);
   }
 
@@ -39,8 +45,8 @@ export class RegProgressBarComponent implements OnInit, AfterViewInit {
 
   setPipeStyles() {
     const barWidth = this.progressBar.nativeElement.offsetWidth;
-    let pipeWidth = ((barWidth - this.screenList.length * 25)/(this.screenList.length -1)) + 2*22/2;
-    this.pipeStyles = {'width.px': pipeWidth, 'margin-left.px': -11, 'margin-right.px': -12};
+    let pipeWidth = ((barWidth - this.screenList.length * 25) / (this.screenList.length - 1)) + 2 * 22 / 2;
+    this.pipeStyles = { 'width.px': pipeWidth, 'margin-left.px': -11, 'margin-right.px': -12 };
   }
 
 }
