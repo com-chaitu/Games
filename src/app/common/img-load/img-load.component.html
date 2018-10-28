@@ -1,4 +1,6 @@
 <div *ngIf="imageLoaded; else loader" [ngClass]="classes" [ngStyle]="styles"></div>
 <ng-template #loader>
-    <span class="loader"></span>
+    <div [ngClass]="classes">
+        <span class="loader"></span>
+    </div>
 </ng-template>

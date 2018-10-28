@@ -66,12 +66,16 @@
 }
 
 @media screen and (max-width: 768px) {
-    .login-photo-carousel-item {
+    :host /deep/ .login-photo-carousel-item {
         border-radius: 0px 0px 9px 9px;
     }
 
     .login-section {
         padding-left: 20px;
         padding-right: 20px;
+    }
+
+    .carousel-conatainer {
+        border-left: none
     }
 }

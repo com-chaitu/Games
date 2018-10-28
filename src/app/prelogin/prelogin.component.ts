@@ -21,9 +21,10 @@ export class PreloginComponent implements OnInit, AfterViewInit {
     this.carouselImages = ['/assets/login_1.png', '/assets/login_2.png', '/assets/login_3.png'];
 
     //adding base href
-    this.carouselImages.forEach(url => {
+    this.carouselImages.forEach((url, index, carouselImages) => {
       if (url.startsWith('/')) {
         url = this._cs.baseHref + url;
+        carouselImages[index] = url;
       }
     })
   }
