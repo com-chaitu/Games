@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { CommonComponentsModule } from './../../commom/common.module';
+import { CommonComponentsModule } from './../../common/common.module';
 
 import { RegFormComponent } from './reg-form/reg-form.component';
 import { RegReviewComponent } from './reg-review/reg-review.component';

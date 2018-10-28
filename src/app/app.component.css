@@ -22,8 +22,6 @@
     margin: 20px 60px 40px;
 }
 
-
-
 @media screen and (max-width: 680px) {
     .grid-body {
         grid-template-columns: auto;

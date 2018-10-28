@@ -20,23 +20,20 @@
           <button class="btn btn-login">Submit</button>
         </div>
         <div class="register">
-          <a (click)="goToRegistration()" [routerLink]="['/registration', 'reg-form']">Don't have an accout? Register now with abc</a>
+          <a (click)="goToRegistration()" [routerLink]="['/registration', 'reg-form']">Don't have an accout? Register
+            now with abc</a>
         </div>
 
       </div>
     </div>
     <div class="col-md-8">
-      <ngb-carousel id="photoSlide" [interval]="2000">
-        <ng-template ngbSlide>
-          <div class="login-photo-carousel-item photo1"></div>
-        </ng-template>
-        <ng-template ngbSlide>
-          <div class="login-photo-carousel-item photo2"></div>
-        </ng-template>
-        <ng-template ngbSlide>
-          <div class="login-photo-carousel-item photo3"></div>
-        </ng-template>
-      </ngb-carousel>
+      <div class="carousel-conatainer">
+        <ngb-carousel id="photoSlide" [interval]="2000">
+          <ng-template ngbSlide *ngFor="let imageUrl of carouselImages">
+            <app-load-image classes="login-photo-carousel-item" [imageUrl]="imageUrl"></app-load-image>
+          </ng-template>
+        </ngb-carousel>
+      </div>
     </div>
   </div>
 </div>

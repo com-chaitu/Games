@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { JampComponent } from './commom/jamp/jamp.component';
+import { JampComponent } from './common/jamp/jamp.component';
 import { CommonService } from './services/common.service';
 
 @Component({

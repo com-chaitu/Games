@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JampComponent implements OnInit {
 
-  private show = false;
+  public show = false;
 
   constructor() { }
 
