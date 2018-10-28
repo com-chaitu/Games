@@ -15,7 +15,10 @@ export class AppComponent implements OnInit {
   title = 'games';
 
   constructor(private _commonService: CommonService) {
-
+    const element = document.getElementById('initialLoader');
+    if (element) {
+      element.remove();
+    }
   }
 
   ngOnInit() {
