@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   constructor(private _commonService: CommonService) {
     const element = document.getElementById('initialLoader');
     if (element) {
-      element.remove();
+      element.parentNode.removeChild(element);
     }
   }
 
