@@ -3,6 +3,7 @@ import { RegistrationService } from '../services/registration.service';
 import { RegistrationModel } from '../model/registration.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
+import { BackendService } from 'src/app/services/backend.service';
 
 @Component({
   selector: 'app-reg-review',
@@ -11,11 +12,13 @@ import { CommonService } from 'src/app/services/common.service';
 })
 export class RegReviewComponent implements OnInit, AfterViewInit {
   registrationData: RegistrationModel;
+  displayEror = false;
 
   constructor(
     private _regService: RegistrationService,
     private _router: Router,
     private _cs: CommonService,
+    private _bs: BackendService,
     private _route: ActivatedRoute) { }
 
   ngAfterViewInit() {
@@ -26,16 +29,22 @@ export class RegReviewComponent implements OnInit, AfterViewInit {
     this._cs.displayJampScreen(true);
     window.scrollTo(0, 0);
     this.registrationData = this._regService.registrationData;
+    
     if (!this.registrationData || !this.registrationData.emailId) {
       this._router.navigate(['../reg-form'], { relativeTo: this._route });
     }
   }
 
   onSubmit() {
+    this.displayEror = false;
     this._cs.displayJampScreen(true);
-    setTimeout(() => {
+    this._bs.makePost('/isUserEnrolled', this.registrationData).subscribe(success => {
       this._router.navigate(['../reg-pwd-setup'], { relativeTo: this._route });
-    }, 1000);
+    }, error => {
+      // to do
+      //user already enrolled error scenario
+      this.displayEror = true;
+    });
   }
 
   navigateBack() {

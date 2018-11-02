@@ -66,17 +66,19 @@ export class RegFormComponent implements OnInit, AfterViewInit {
       if (!regex.test(event.target.value)) {
         if (event.target.value) {
           errorTarget.innerText = 'Please enter valid ' + event.target.placeholder + '.';
-        } else if (validationRule.isMandatory) {
-          errorTarget.innerText = 'Please enter ' + event.target.placeholder + '.';
+          if ('emailId' === targetId) {
+            this.hasEmailError = true;
+          } else if ('firstName' === targetId) {
+            this.hasFirstNameError = true;
+          } else if ('mobile' === targetId) {
+            this.hasMobileError = true;
+          }
         }
+        // else if (validationRule.isMandatory) {
+        //   errorTarget.innerText = 'Please enter ' + event.target.placeholder + '.';
+        // }
 
-        if ('emailId' === targetId) {
-          this.hasEmailError = true;
-        } else if ('firstName' === targetId) {
-          this.hasFirstNameError = true;
-        } else if ('mobile' === targetId) {
-          this.hasMobileError = true;
-        }
+
       } else {
         errorTarget.innerText = '';
         if ('emailId' === targetId) {
@@ -92,7 +94,8 @@ export class RegFormComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit() {
-    if (this.registrationData.emailId && this.registrationData.firstName && this.registrationData.mobile) {
+    if ((this.registrationData.emailId && !this.hasEmailError) && (this.registrationData.firstName && !this.hasFirstNameError)
+      && (this.registrationData.mobile && !this.hasMobileError)) {
       this._regService.registrationData = this.registrationData;
       this._cs.displayJampScreen(true);
       this._router.navigate(['../reg-review'], { relativeTo: this._route });

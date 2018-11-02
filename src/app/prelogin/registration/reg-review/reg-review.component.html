@@ -4,6 +4,10 @@
   </div>
 
   <div *ngIf="registrationData && registrationData.emailId; else errorContainer" class="review-section">
+    <div class="error-banner" *ngIf="displayEror">
+      <app-error-banner></app-error-banner>
+    </div>
+
     <div class="review-details">
       <div class="reivew-text">
         Please review the details below

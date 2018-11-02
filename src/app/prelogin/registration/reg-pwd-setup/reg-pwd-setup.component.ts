@@ -3,6 +3,7 @@ import { RegistrationService } from '../services/registration.service';
 import { RegistrationModel } from '../model/registration.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
+import { BackendService } from 'src/app/services/backend.service';
 
 @Component({
   selector: 'app-reg-pwd-setup',
@@ -46,6 +47,7 @@ export class RegPwdSetupComponent implements OnInit, AfterViewInit {
     private _regService: RegistrationService,
     private _router: Router,
     private _cs: CommonService,
+    private _bs: BackendService,
     private _route: ActivatedRoute) { }
 
   ngAfterViewInit() {
@@ -78,7 +80,22 @@ export class RegPwdSetupComponent implements OnInit, AfterViewInit {
 
   onSubmit() {
     this._cs.displayJampScreen(true);
-    this._router.navigate(['../reg-confirm'], { relativeTo: this._route });
+    if (this.isValidRequest()) {
+       
+      this._bs.makePost('/registerUser', this.registrationData).subscribe(success => {
+        this._router.navigate(['../reg-confirm'], { relativeTo: this._route });
+      }, error => {
+        console.log('error');
+
+        // to do for error flow
+      });
+    } else {
+      // to do for invalid request
+    }
+  }
+
+  isValidRequest() {
+    return true;
   }
 
   navigateBack() {

@@ -5,12 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { LoadImage } from './img-load/img-load.component';
 import { JampComponent } from './jamp/jamp.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { ErrorBannerComponent } from './error-banner/error-banner.component';
 
 
 const imports = [
+  ErrorBannerComponent,
   LoadImage,
   JampComponent,
-  ProgressBarComponent
+  ProgressBarComponent,
 ];
 
 @NgModule({

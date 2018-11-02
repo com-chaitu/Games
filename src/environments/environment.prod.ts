@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  baseHref: '/games'
+  baseHref: '/games',
+  backendUrl: 'https://abc-micro.herokuapp.com'
 };

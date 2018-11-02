@@ -1,0 +1,33 @@
+.error-container {
+    border: 1px solid red;
+    padding: 10px;
+    border-left: 5px solid red; 
+}
+
+.circle {
+    background: linear-gradient(to top, #fd7c7c, #ffb88c);
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    float: left;
+    margin-right: 15px;
+}
+
+.tick-mark {
+    display: inline-block;
+    border-left: 6px solid #ffffff;
+    border-bottom: 6px solid #ffffff;
+    width: 25px;
+    height: 13px;
+    transform: rotate(-45deg);
+    position: relative;
+    top: 10px;
+    left: 12px;
+}
+
+.error-text {
+    display: table-cell;
+    vertical-align: middle;
+    height: 50px;
+    font-weight: 500;
+}
