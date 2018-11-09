@@ -4,6 +4,13 @@
     </div>
 
     <div class="reg-form" #regForm>
+        <div class="error-banner" *ngIf="displayError">
+            <app-error-banner>
+                You have already registered with us. Please <a (click)="navigateToLogin()" [routerLink]="['./../../prelogin']">login</a>
+                to manage your booking or else register with different email id.
+
+            </app-error-banner>
+        </div>
         <div class="mandatoryFieldError" *ngIf="mandatoryFieldError">
             Please enter all the mandatory fields.
         </div>

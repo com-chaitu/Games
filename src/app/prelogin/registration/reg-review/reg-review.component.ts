@@ -12,7 +12,7 @@ import { BackendService } from 'src/app/services/backend.service';
 })
 export class RegReviewComponent implements OnInit, AfterViewInit {
   registrationData: RegistrationModel;
-  displayEror = false;
+  displayError = false;
 
   constructor(
     private _regService: RegistrationService,
@@ -36,14 +36,19 @@ export class RegReviewComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit() {
-    this.displayEror = false;
+    this.displayError = false;
     this._cs.displayJampScreen(true);
     this._bs.makePost('/isUserEnrolled', this.registrationData).subscribe(success => {
       this._router.navigate(['../reg-pwd-setup'], { relativeTo: this._route });
     }, error => {
       // to do
       //user already enrolled error scenario
-      this.displayEror = true;
+      if (true) {
+        this._router.navigate(['../reg-form'], { relativeTo: this._route, queryParams: {'user':'alreadyRegistered'}});
+      } else {
+        this.displayError = true;
+        this._cs.displayJampScreen(false);
+      }
     });
   }
 

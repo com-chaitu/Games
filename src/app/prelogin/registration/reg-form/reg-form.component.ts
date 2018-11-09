@@ -18,6 +18,7 @@ export class RegFormComponent implements OnInit, AfterViewInit {
   hasMobileError = false;
   hasFirstNameError = false;
   mandatoryFieldError = false;
+  displayError = false;
 
   @ViewChild('regForm')
   regForm: ElementRef;
@@ -55,6 +56,11 @@ export class RegFormComponent implements OnInit, AfterViewInit {
       this.registrationData = new RegistrationModel();
     }
     this.validationRules = this._regService.validationRules;
+    this._route.queryParams.subscribe(params => {
+      if (params['user'] && params['user'] === 'alreadyRegistered') {
+        this.displayError = true;
+      }
+    });
   }
 
   onInputBlur(event) {

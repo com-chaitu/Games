@@ -6,6 +6,10 @@
     margin: 0 auto;
 }
 
+.error-banner {
+    margin-bottom: 20px;
+}
+
 .mandatory {
     color: red;
 }
