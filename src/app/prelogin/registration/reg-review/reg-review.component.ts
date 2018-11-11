@@ -29,7 +29,7 @@ export class RegReviewComponent implements OnInit, AfterViewInit {
     this._cs.displayJampScreen(true);
     window.scrollTo(0, 0);
     this.registrationData = this._regService.registrationData;
-    
+
     if (!this.registrationData || !this.registrationData.emailId) {
       this._router.navigate(['../reg-form'], { relativeTo: this._route });
     }
@@ -38,17 +38,15 @@ export class RegReviewComponent implements OnInit, AfterViewInit {
   onSubmit() {
     this.displayError = false;
     this._cs.displayJampScreen(true);
-    this._bs.makePost('/isUserEnrolled', this.registrationData).subscribe(success => {
-      this._router.navigate(['../reg-pwd-setup'], { relativeTo: this._route });
-    }, error => {
-      // to do
-      //user already enrolled error scenario
-      if (true) {
-        this._router.navigate(['../reg-form'], { relativeTo: this._route, queryParams: {'user':'alreadyRegistered'}});
+    this._bs.makePost('/isUserEnrolled', this.registrationData).subscribe(data => {
+      if (data.userRegistered) {
+        this._router.navigate(['../reg-form'], { relativeTo: this._route, queryParams: { 'user': 'alreadyRegistered' } });
       } else {
-        this.displayError = true;
-        this._cs.displayJampScreen(false);
+        this._router.navigate(['../reg-pwd-setup'], { relativeTo: this._route });
       }
+    }, error => {
+      this.displayError = true;
+      this._cs.displayJampScreen(false);
     });
   }
 

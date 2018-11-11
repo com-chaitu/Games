@@ -19,6 +19,7 @@ export class RegPwdSetupComponent implements OnInit, AfterViewInit {
   displayPasswordMatchMsg = false;
   passwordMatch = false;
   disableSubmit = true;
+  displayError = false;
 
   @HostListener('window:keyup', ['$event']) onkeyup(event) {
     const targetId = event.target.id;
@@ -79,15 +80,15 @@ export class RegPwdSetupComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit() {
+    this.displayError = false;
     this._cs.displayJampScreen(true);
     if (this.isValidRequest()) {
        
       this._bs.makePost('/registerUser', this.registrationData).subscribe(success => {
         this._router.navigate(['../reg-confirm'], { relativeTo: this._route });
       }, error => {
-        console.log('error');
-
-        // to do for error flow
+        this.displayError = true;
+        this._cs.displayJampScreen(false);
       });
     } else {
       // to do for invalid request

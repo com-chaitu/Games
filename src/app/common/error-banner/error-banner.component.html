@@ -3,6 +3,9 @@
     <span class="exclamation-mark">&#161;</span>
   </div>
   <div class="error-text">
-    <ng-content></ng-content>
+    <div #ngContent><ng-content></ng-content></div>
+    <div *ngIf="ngContentRef.nativeElement.childNodes.length === 0">
+      We are having some temporary technical issues. Please try again later.
+    </div>
   </div>
 </div>

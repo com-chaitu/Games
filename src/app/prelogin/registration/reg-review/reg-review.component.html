@@ -5,9 +5,7 @@
 
   <div *ngIf="registrationData && registrationData.emailId; else errorContainer" class="review-section">
     <div class="error-banner" *ngIf="displayError">
-      <app-error-banner>
-        we are facing some temporary technical issues. Please try again later.
-      </app-error-banner>
+      <app-error-banner></app-error-banner>
     </div>
 
     <div class="review-details">

@@ -122,5 +122,6 @@ export class RegFormComponent implements OnInit, AfterViewInit {
 
   navigateToLogin() {
     this._cs.displayJampScreen(true);
+    this._regService.registrationData = undefined;
   }
 }

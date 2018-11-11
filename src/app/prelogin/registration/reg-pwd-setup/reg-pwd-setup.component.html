@@ -4,6 +4,9 @@
     </div>
 
     <div class="reg-pwd-setup-form">
+        <div class="error-banner" *ngIf="displayError">
+            <app-error-banner></app-error-banner>
+        </div>
         <div class="form-text">
             Set up your password
         </div>
@@ -14,7 +17,7 @@
         <div class="form-group">
             <label class="control-label" iv>Password</label>
             <input id="password" type="password" [(ngModel)]="password" class="form-control reg-pwd" placeholder="Enter your new password"
-            (blur)="validatePasswords()">
+                (blur)="validatePasswords()">
             <input id="rePassword" type="password" [(ngModel)]="rePassword" class="form-control reg-pwd" placeholder="Re-Enter your password"
                 (blur)="validatePasswords()">
             <div class="passwordMatch" *ngIf="displayPasswordMatchMsg">
