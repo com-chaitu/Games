@@ -32,6 +32,10 @@
     overflow: hidden;
 }
 
+.rememberMeText {
+    margin-left: 5px;
+}
+
 .btn-login {
     background: #DE6262;
     color: #fff;
