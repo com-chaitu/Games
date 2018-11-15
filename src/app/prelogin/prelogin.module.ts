@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 
@@ -9,7 +10,7 @@ import { PreloginRouting } from './prelogin-routing.module';
 
 @NgModule({
   imports: [
-    CommonModule, PreloginRouting, CommonComponentsModule, NgbModule.forRoot()
+    CommonModule, FormsModule, PreloginRouting, CommonComponentsModule, NgbModule.forRoot()
   ],
   declarations: [SignonComponent, PreloginComponent]
 })

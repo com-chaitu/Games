@@ -23,6 +23,32 @@
     border-radius: 3px;
 }
 
+.error .control-label {
+    color: red;
+    font-weight: 500;
+}
+
+.error input {
+    box-shadow: 0 0 0.2rem red;
+    border-color: red;
+    color: red;
+}
+
+.error input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #f95d5d;
+    opacity: 1; /* Firefox */
+}
+
+.error input::-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: red;
+}
+
+.error .errorMsg {
+    display: block;
+    color: red;
+    font-size: small;
+}
+
 .login-section {
     padding-left: 30px;
     padding-bottom: 20px;

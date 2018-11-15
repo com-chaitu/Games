@@ -55,7 +55,7 @@ export class RegFormComponent implements OnInit, AfterViewInit {
     } else {
       this.registrationData = new RegistrationModel();
     }
-    this.validationRules = this._regService.validationRules;
+    this.validationRules = this._cs.validationRules;
     this._route.queryParams.subscribe(params => {
       if (params['user'] && params['user'] === 'alreadyRegistered') {
         this.displayError = true;

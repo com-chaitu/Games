@@ -63,7 +63,7 @@ export class RegPwdSetupComponent implements OnInit, AfterViewInit {
     } else {
       this._router.navigate(['../reg-form'], { relativeTo: this._route });
     }
-    this.validationRules = this._regService.validationRules;
+    this.validationRules = this._cs.validationRules;
   }
 
   validatePasswords() {
