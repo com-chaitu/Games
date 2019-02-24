@@ -1,41 +1,75 @@
 <div class="reg-container">
     <div class="reg-progress-bar">
-        <app-reg-progress-bar screenId="form"></app-reg-progress-bar>
+        <app-progress-bar screenId="form"></app-progress-bar>
     </div>
 
-    <div class="reg-form">
-        <div class="form-group">
-            <label class="control-label">Email Id</label>
-            <input type="email" [(ngModel)]="registrationData.emailId" class="form-control" placeholder="Email ID">
+    <div class="reg-form" #regForm>
+        <div class="error-banner" *ngIf="displayError">
+            <app-error-banner>
+                You have already registered with us. Please <a (click)="navigateToLogin()" [routerLink]="['./../../prelogin']">login</a>
+                to manage your booking or else register with different email id.
+
+            </app-error-banner>
+        </div>
+        <div class="mandatoryFieldError" *ngIf="mandatoryFieldError">
+            Please enter all the mandatory fields.
+        </div>
+        <div class="form-text">
+            Please enter the details below
+        </div>
+        <div class="form-group" [class.error]="hasEmailError">
+            <label class="control-label">Email Id<sup class="mandatory">*</sup></label>
+            <input id="emailId" type="email" [(ngModel)]="registrationData.emailId" class="form-control" placeholder="Email ID"
+                (blur)="onInputBlur($event)" (focus)="hasEmailError = false">
+            <span id="emailIdError" class="errorMsg"></span>
+        </div>
+        <div class="form-group" [class.error]="hasFirstNameError">
+            <label class="control-label">First Name<sup class="mandatory">*</sup></label>
+            <input id="firstName" type="text" [(ngModel)]="registrationData.firstName" class="form-control" placeholder="First Name"
+                (blur)="onInputBlur($event)" (focus)="hasFirstNameError = false">
+            <span id="firstNameError" class="errorMsg"></span>
         </div>
         <div class="form-group">
-            <label class="control-label" iv>First Name</label>
-            <input type="text" [(ngModel)]="registrationData.firstName" class="form-control" placeholder="First Name">
-        </div>
-        <div class="form-group">
-            <label class="control-label" iv>Last Name</label>
-            <input type="text" [(ngModel)]="registrationData.lastName" class="form-control" placeholder="Last Name">
+            <label class="control-label">Last Name</label>
+            <input id="lastName" type="text" [(ngModel)]="registrationData.lastName" class="form-control" placeholder="Last Name"
+                (blur)="onInputBlur($event)">
+            <span id="lastNameError" class="errorMsg"></span>
         </div>
         <div class="form-group">
             <label class="control-label">Date of Birth</label>
-            <input type="date" [(ngModel)]="registrationData.dob" class="form-control"></div>
-        <div class="form-group">
-            <label class="control-label">Mobile Number</label>
-            <input type="tel" [(ngModel)]="registrationData.mobile" class="form-control" placeholder="Mobile Number">
+            <input id="dob" type="date" [(ngModel)]="registrationData.dob" class="form-control" placeholder="Date of Birth">
+            <span id="dobError" class="errorMsg"></span>
+        </div>
+        <div class="form-group" [class.error]="hasMobileError">
+            <label class="control-label">Mobile Number<sup class="mandatory">*</sup></label>
+            <input id="mobile" type="tel" [(ngModel)]="registrationData.mobile" class="form-control" placeholder="Mobile Number"
+                (blur)="onInputBlur($event)" (focus)="hasMobileError = false">
+            <span id="mobileError" class="errorMsg"></span>
         </div>
         <div class="form-group">
             <label class="control-label">Address </label>
-            <input type="text" [(ngModel)]="registrationData.addressLine1" class="form-control address-input"
-                placeholder="D.No. / Flat No and Apartment Name">
-            <input type="text" [(ngModel)]="registrationData.addressLine2" class="form-control address-input"
-                placeholder="Street Name">
-            <input type="text" [(ngModel)]="registrationData.landmark" class="form-control address-input" placeholder="Landmark">
-            <input type="text" [(ngModel)]="registrationData.city" class="form-control address-input" placeholder="City">
-            <input type="number" [(ngModel)]="registrationData.pincode" class="form-control address-input" placeholder="Pincode">
+            <input id="addressLine1" type="text" [(ngModel)]="registrationData.addressLine1" class="form-control address-input"
+                placeholder="D.No. / Flat No and Apartment Name" (blur)="onInputBlur($event)">
+            <span id="addressLine1Error" class="errorMsg"></span>
+            <input id="addressLine2" type="text" [(ngModel)]="registrationData.addressLine2" class="form-control address-input"
+                placeholder="Street Name" (blur)="onInputBlur($event)">
+            <span id="addressLine2Error" class="errorMsg"></span>
+            <input id="landmark" type="text" [(ngModel)]="registrationData.landmark" class="form-control address-input"
+                placeholder="Landmark" (blur)="onInputBlur($event)">
+            <span id="landmarkError" class="errorMsg"></span>
+            <input id="city" type="text" [(ngModel)]="registrationData.city" class="form-control address-input"
+                placeholder="City" (blur)="onInputBlur($event)">
+            <span id="cityError" class="errorMsg"></span>
+            <input id="pincode" type="number" [(ngModel)]="registrationData.pincode" class="form-control address-input"
+                placeholder="Pincode" (blur)="onInputBlur($event)">
+            <span id="pincodeError" class="errorMsg"></span>
         </div>
         <div class="reg-footer">
             <button class="btn btn-submit" (click)="onSubmit()">Continue</button>
-            <a [routerLink]="['./../../prelogin']" class="btn btn-link">Cancel</a>
+            <a (click)="navigateToLogin()" [routerLink]="['./../../prelogin']" class="btn btn-link">Cancel</a>
+            <div class="note">
+                Note: Fields marked with <sup class="mandatory">*</sup> are mandatory.
+            </div>
         </div>
     </div>
 </div>

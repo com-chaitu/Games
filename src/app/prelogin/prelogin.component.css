@@ -23,6 +23,32 @@
     border-radius: 3px;
 }
 
+.error .control-label {
+    color: red;
+    font-weight: 500;
+}
+
+.error input {
+    box-shadow: 0 0 0.2rem red;
+    border-color: red;
+    color: red;
+}
+
+.error input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #f95d5d;
+    opacity: 1; /* Firefox */
+}
+
+.error input::-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: red;
+}
+
+.error .errorMsg {
+    display: block;
+    color: red;
+    font-size: small;
+}
+
 .login-section {
     padding-left: 30px;
     padding-bottom: 20px;
@@ -30,6 +56,10 @@
 
 .login-sec-footer {
     overflow: hidden;
+}
+
+.rememberMeText {
+    margin-left: 5px;
 }
 
 .btn-login {
@@ -51,7 +81,12 @@
     height: 100%;
 }
 
-.login-photo-carousel-item {
+.carousel-conatainer {
+    border-left: 1px solid #e9ecef;
+    height: 100%;
+}
+
+:host /deep/ .login-photo-carousel-item {
     min-height: 275px;
     width: 100%;
     height: 100%;
@@ -60,26 +95,17 @@
     border-radius: 0px 9px 9px 0px;
 }
 
-.photo1 {
-    background-image: url('/assets/login_1.png');
-}
-
-.photo2 {
-    background-image: url('/assets/login_2.png');
-}
-
-.photo3 {
-    background-image: url('/assets/login_3.png');
-}
-
-
 @media screen and (max-width: 768px) {
-    .login-photo-carousel-item {
+    :host /deep/ .login-photo-carousel-item {
         border-radius: 0px 0px 9px 9px;
     }
 
     .login-section {
         padding-left: 20px;
         padding-right: 20px;
+    }
+
+    .carousel-conatainer {
+        border-left: none
     }
 }

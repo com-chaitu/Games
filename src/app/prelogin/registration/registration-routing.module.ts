@@ -21,6 +21,10 @@ const regRoutes: Route[] = [
     {
         path: 'reg-pwd-setup',
         component: RegPwdSetupComponent
+    },
+    {
+        path: 'reg-confirm',
+        component: RegConfirmationComponent
     }
 ];
 

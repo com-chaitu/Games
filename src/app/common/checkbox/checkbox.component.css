@@ -1,0 +1,48 @@
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox] + label {
+    cursor: pointer;
+}
+
+input[type=checkbox] + label::before {
+    content: '';
+    border: 1px solid #000000;
+    border-radius: 0.2em;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+    padding-left: 1px;
+    position: relative;
+    top: 3px;
+    transition: .2s;
+}
+
+input[type=checkbox] + label:active::before {
+    transform: scale(0);
+}
+
+input[type=checkbox]:checked + label::before {
+    background: #DE6262;
+    border-color: #DE6262;
+    background-image: url('/assets/checkmark-white.svg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+input[type=checkbox]:disabled + label::before {
+    transform: scale(1);
+    border-color: #aaaaaa;
+}
+
+input[type=checkbox]:checked:disabled + label::before {
+    transform: scale(1);
+    border-color: #DE6262;
+    opacity: 0.65;
+}
+
+label {
+    line-height: 1;
+}

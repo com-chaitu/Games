@@ -1,0 +1,11 @@
+<div class="progress-bar-container" #progressBar>
+    <div class="bar-item" *ngFor="let screen of screenList; let i = index">
+        <div class="circle">
+            <div *ngIf="i < currentScreenIndex || currentScreenIndex === screenList.length - 1" class="innerCircle" [class.nowidth]="removeCircle && i === screenList.length - 1"></div>
+            <div *ngIf="i === currentScreenIndex && currentScreenIndex !== screenList.length - 1" class="halfCircle" [class.nowidth]="removeCircle && i !== 0"></div>
+        </div>
+        <div *ngIf="i !== screenList.length - 1" [ngStyle]="pipeStyles" class="pipe">
+            <div id="innerPipe_{{i}}" class="{{i < currentScreenIndex ? 'innerPipe' : ''}}" [class.nowidth]="i === currentScreenIndex -1 && removePipe"></div>
+        </div>
+    </div>
+</div>

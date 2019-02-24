@@ -1,0 +1,89 @@
+.reg-container {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 15px 20px 0px rgba(0,0,0,0.1);
+    width: 60%;
+    margin: 0 auto;
+}
+
+.error-banner {
+    margin-bottom: 20px;
+}
+
+.reg-progress-bar {
+    padding: 20px 60px;
+}
+
+.reg-pwd-setup-form {
+    overflow: hidden;
+    margin: 0 60px;
+    padding: 0 3px;
+}
+
+.form-text {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.reg-pwd {
+    margin-bottom: 10px;
+}
+
+.passwordMatch .error {
+    font-size: smaller;
+    color: red;
+    font-weight: 500;
+}
+
+.passwordMatch .success {
+    font-size: smaller;
+    color: #2bb52b;
+    font-weight: 500;
+}
+
+.passwordMatch .success span, .passwordMatch .error span {
+    margin-left: 5px;
+}
+
+.reg-footer {
+    margin-bottom: 20px;
+    padding-top: 4px;
+}
+
+.btn-submit {
+    background: #DE6262;
+    color: #fff;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 680px) {
+    .reg-container {
+        width: 100%;
+    }
+
+    .reg-pwd-setup-form {
+        margin: 0px 20px;
+    }
+
+    .reg-progress-bar {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media screen and (min-width: 681px) and (max-width: 980px) {
+    .reg-container {
+        width: 70%;
+    }
+
+    .reg-pwd-setup-form {
+        margin: 0px 40px;
+    }
+
+    .reg-progress-bar {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+

@@ -1,16 +1,34 @@
-<div class="reg-progress-bar">
-    <app-reg-progress-bar screenId="pwdSetup"></app-reg-progress-bar>
-</div>
+<div class="reg-container">
+    <div class="reg-progress-bar">
+        <app-progress-bar screenId="pwdSetup"></app-progress-bar>
+    </div>
 
-<div class="pwd-setup-container">
-  <div>
-    <div>User Id</div>
-    <div>{{registrationData.emailId}}</div>
-  </div>
-  <div>
-  <div>Password</div>
-  <div><input type="password" placeholder="Enter your new password" size="25"></div>
-  <div><input type="password" placeholder="Re-Enter your password" size="25"></div>
-  </div>
+    <div class="reg-pwd-setup-form">
+        <div class="error-banner" *ngIf="displayError">
+            <app-error-banner></app-error-banner>
+        </div>
+        <div class="form-text">
+            Set up your password
+        </div>
+        <div class="form-group">
+            <label class="control-label">User Id</label>
+            <input type="email" [(ngModel)]="userId" class="form-control" disabled placeholder="Email ID">
+        </div>
+        <div class="form-group">
+            <label class="control-label" iv>Password</label>
+            <input id="password" type="password" [(ngModel)]="password" class="form-control reg-pwd" placeholder="Enter your new password"
+                (blur)="validatePasswords()">
+            <input id="rePassword" type="password" [(ngModel)]="rePassword" class="form-control reg-pwd" placeholder="Re-Enter your password"
+                (blur)="validatePasswords()">
+            <div class="passwordMatch" *ngIf="displayPasswordMatchMsg">
+                <span class="success" *ngIf="passwordMatch">&#10004;<span>Passwords match</span></span>
+                <span class="error" *ngIf="!passwordMatch">&#10060;<span>Passwords does't match</span></span>
+            </div>
+        </div>
 
+        <div class="reg-footer">
+            <button class="btn btn-submit" [disabled]="disableSubmit" (click)="onSubmit()">Submit</button>
+            <a (click)="navigateBack()" [routerLink]="['./../reg-review']" class="btn btn-link">Cancel</a>
+        </div>
+    </div>
 </div>

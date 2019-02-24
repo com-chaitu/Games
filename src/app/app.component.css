@@ -10,7 +10,7 @@
 }
 
 .grid-body {
-    background: linear-gradient(to top, #fd7c7c, #ffb88c)
+    background: linear-gradient(to top, #fd7c7c, #ffb88c);
 }
 
 .grid-footer {
@@ -20,9 +20,8 @@
 
 .content {
     margin: 20px 60px 40px;
+    min-height: 300px;
 }
-
-
 
 @media screen and (max-width: 680px) {
     .grid-body {
